@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "johndoe@gmail.com",
+        "isAdmin": true,
+        "password": "123",
+        "phone": "054-321-33-33"
+    },
+    {
+        "id": 2,
+        "firstName": "Sara",
+        "lastName": "Doe",        
+        "email": "sara@sara.com",
+        "isAdmin": false,
+        "password": "abc",
+        "phone": "052-542-53-33"
+    }
+]

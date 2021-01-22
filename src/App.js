@@ -12,7 +12,9 @@ import GatheringNavbar from './components/GatheringNavbar';
 
 const App = () => (
   <HashRouter>
-    <GatheringNavbar />
+    <Route exact path={['/', '/groceries', '/guests', '/adress']}>
+      <GatheringNavbar />
+    </Route>
     <Container>
       <Switch>
         <Route exact path="/">
