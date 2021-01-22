@@ -6,7 +6,7 @@
         "email": "johndoe@gmail.com",
         "isAdmin": true,
         "password": "123",
-        "phone": "054-321-33-33"
+        "phone": "0543213333"
     },
     {
         "id": 2,
@@ -15,6 +15,6 @@
         "email": "sara@sara.com",
         "isAdmin": false,
         "password": "abc",
-        "phone": "052-542-53-33"
+        "phone": "0525425333"
     }
 ]

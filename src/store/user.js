@@ -1,11 +1,12 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-// import axios from 'axios';
+import users from '../data/users.json';
 
 const userSlice = createSlice({
   name: 'user',
   initialState: {
     activeUser: null,
+    usersList: users,
   },
   reducers: {
     loginSuccess: (state, action) => {
@@ -14,8 +15,11 @@ const userSlice = createSlice({
     logoutSuccess: (state) => {
       state.activeUser = null;
     },
+    addUserSuccess: (state, action) => {
+      state.usersList.push(action.payload);
+    },
   },
 });
 
 export default userSlice.reducer;
-export const { loginSuccess, logoutSuccess } = userSlice.actions;
+export const { loginSuccess, logoutSuccess, addUserSuccess } = userSlice.actions;
