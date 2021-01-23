@@ -3,8 +3,9 @@ import { useDispatch } from 'react-redux';
 import { Container, Form, Button } from 'react-bootstrap';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import users from '../data/users.json';
-import { loginSuccess } from '../store/user';
+import users from '../../data/users.json';
+import { loginSuccess } from '../../store/user';
+import './style.css';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ const LoginPage = () => {
   return (
     <Container className="c-login-page text-center">
       <h1>Login</h1>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} className="form">
         <Form.Group controlId="formGroupEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -57,7 +58,7 @@ const LoginPage = () => {
             onChange={handleChange}
             isInvalid={!!errors.email}
           />
-          {errors.email}
+          <div className="errors">{errors.email}</div>
         </Form.Group>
         <Form.Group controlId="formGroupPassword">
           <Form.Label>Password</Form.Label>
@@ -69,10 +70,10 @@ const LoginPage = () => {
             onChange={handleChange}
             isInvalid={!!errors.password}
           />
-          {errors.password}
-          {errors.user}
+          <div className="errors">{errors.password}</div>
+          <div className="errors">{errors.user}</div>
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="info" block type="submit">
           Login
         </Button>
       </Form>

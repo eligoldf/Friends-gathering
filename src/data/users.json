@@ -16,5 +16,24 @@
         "isAdmin": false,
         "password": "abc",
         "phone": "0525425333"
+    },
+    {
+        "id": 3,
+        "firstName": "William",
+        "lastName": "Will",        
+        "email": "will@yahoo.com",
+        "isAdmin": false,
+        "password": "abc",
+        "phone": "0545725333"
+    }, 
+    {
+        "id": 4,
+        "firstName": "Jane",
+        "lastName": "Doe",        
+        "email": "jane@gmail.com",
+        "isAdmin": false,
+        "password": "abc",
+        "phone": "0545725443"
     }
+
 ]

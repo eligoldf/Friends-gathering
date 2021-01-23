@@ -9,7 +9,10 @@ import logo from '../images/logo.png';
 const GatheringNavbar = () => {
   const dispatch = useDispatch();
   const activeUser = useSelector((state) => state.user.activeUser);
-  const handleLogout = () => dispatch(logoutSuccess());
+  const handleLogout = () => {
+    dispatch(logoutSuccess());
+    window.location = '/';
+  };
 
   const loginEl = (!activeUser) && <Nav.Link href="/#/login">Login</Nav.Link>;
   const signupEl = (!activeUser) && <Nav.Link href="/#/signup">Signup</Nav.Link>;
@@ -33,7 +36,15 @@ const GatheringNavbar = () => {
           {signupEl}
           {logoutEl}
         </Nav>
-        <Nav>{activeUser && `Hello ${activeUser}`}</Nav>
+        <Nav>
+          {activeUser && (
+          <span style={{ color: 'purple' }}>
+            Hello
+            {' '}
+            {activeUser}
+          </span>
+          )}
+        </Nav>
       </Navbar.Collapse>
     </Navbar>
   );

@@ -4,9 +4,9 @@ import { Navbar } from 'react-bootstrap';
 const GatheringFooter = () => {
   const year = new Date().getFullYear();
   return (
-    <Navbar bg="dark" variant="dark" fixed="bottom">
-      <Navbar.Collapse className="justify-content-end">
-        <Navbar.Text className="text-xs-center">
+    <Navbar bg="dark" variant="dark" fixed="bottom" style={{ height: '40px' }}>
+      <Navbar.Collapse>
+        <Navbar.Text style={{ marginTop: '15px' }}>
           <p>
             &copy; Eli Goldfeder
             {' '}

@@ -1,9 +1,7 @@
 import React from 'react';
 
 const GroceriesPage = () => (
-  <div>
-    GroceriesPage
-  </div>
+  <div>Groserie</div>
 );
 
 export default GroceriesPage;

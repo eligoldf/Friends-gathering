@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "type": "bread",
+        "price": 5,
+        "count": 0
+    },
+    {
+        "id": 2,
+        "type": "steak",
+        "price": 80,
+        "count": 0
+
+    },
+    {
+        "id": 3,
+        "type": "potatoes",
+        "price": 10,
+        "count": 0
+    },
+    {
+        "id": 1,
+        "type": "water",
+        "price": 4,
+        "count": 0
+    }
+]

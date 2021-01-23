@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.homepage-jumbotron {
+    background-color: white;
+    color: purple;
+    font-family: 'Lobster', cursive;
+    min-height: 75%;
+    min-height: 75vh;
+    display: flex;
+    align-items: center; 
+}

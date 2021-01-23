@@ -2,12 +2,12 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
-import HomePage from './pages/Homepage';
-import GroceriesPage from './pages/GroceriesPage';
-import GuestsPage from './pages/GuestsPage';
-import AddressPage from './pages/AdressPage';
-import SignupPage from './pages/SignupPage';
-import LoginPage from './pages/LoginPage';
+import HomePage from './pages/homepage/Homepage';
+import GroceriesPage from './pages/groceriesPage/GroceriesPage';
+import GuestsPage from './pages/guestsPage/GuestsPage';
+import AddressPage from './pages/adressPage/AdressPage';
+import SignupPage from './pages/signupPage/SignupPage';
+import LoginPage from './pages/loginPage/LoginPage';
 import GatheringNavbar from './components/GatheringNavbar';
 import GatheringFooter from './components/GatheringFooter';
 
