@@ -33,6 +33,7 @@ const SignupPage = () => {
     dispatch(addUserSuccess(data));
     setSubmitting(false);
     resetForm();
+    window.location = '/#/groceries';
   };
 
   const {

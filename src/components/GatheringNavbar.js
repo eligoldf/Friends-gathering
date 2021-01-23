@@ -1,22 +1,41 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Navbar, Nav } from 'react-bootstrap';
+import { HomeIcon } from '@primer/octicons-react';
+import { logoutSuccess } from '../store/user';
 
-const GatheringNavbar = () => (
-  <Navbar bg="light" expand="lg">
-    <Navbar.Brand href="#home">Friends Gathering</Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse className="mr-auto">
-      <Nav.Link href="/">Home</Nav.Link>
-      <Nav.Link href="/#/groceries">Menu</Nav.Link>
-      <Nav.Link href="/#/guests">Guests</Nav.Link>
-      <Nav.Link href="/#/adress">Event Adress</Nav.Link>
-    </Navbar.Collapse>
-    <Nav className="ml-auto">
-      <Nav.Link href="/#/login">Login</Nav.Link>
-      <Nav.Link href="/#/signup">Sign Up</Nav.Link>
-      <Nav.Link href="/#/logout">Logout</Nav.Link>
-    </Nav>
-  </Navbar>
-);
+import logo from '../images/logo.png';
 
+const GatheringNavbar = () => {
+  const dispatch = useDispatch();
+  const activeUser = useSelector((state) => state.user.activeUser);
+  const handleLogout = () => dispatch(logoutSuccess());
+
+  const loginEl = (!activeUser) && <Nav.Link href="/#/login">Login</Nav.Link>;
+  const signupEl = (!activeUser) && <Nav.Link href="/#/signup">Signup</Nav.Link>;
+  const logoutEl = (activeUser) && <Nav.Link onClick={handleLogout}>Logout</Nav.Link>;
+
+  return (
+    <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+      <Navbar.Brand href="#home">
+        <img src={logo} style={{ width: '40px', height: '40px' }} alt="logo" className="logo" />
+      </Navbar.Brand>
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
+        <Nav className="nav-links mr-auto">
+          <Nav.Link href="/"><HomeIcon size={24} /></Nav.Link>
+          <Nav.Link href="/#/groceries">Menu</Nav.Link>
+          <Nav.Link href="/#/guests">Guests</Nav.Link>
+          <Nav.Link href="/#/adress">Event Adress</Nav.Link>
+        </Nav>
+        <Nav className="nav-links ml-auto">
+          {loginEl}
+          {signupEl}
+          {logoutEl}
+        </Nav>
+        <Nav>{activeUser && `Hello ${activeUser}`}</Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
+};
 export default GatheringNavbar;

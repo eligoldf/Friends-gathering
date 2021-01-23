@@ -15,17 +15,20 @@ const LoginPage = () => {
   });
 
   const handleValidation = ({ email, password }, { resetForm, setSubmitting, setFieldError }) => {
-    const isActiveUser = users.find((user) => user.email === email && user.password === password);
+    const varifiedUser = users.find(
+      (user) => (user.email === email && user.password === password),
+    );
 
-    if (isActiveUser === undefined) {
+    if (varifiedUser === undefined) {
       resetForm();
       setSubmitting(false);
       setFieldError('user', 'There is no such user');
     } else {
-      const activeUser = isActiveUser.firstName;
+      const activeUser = varifiedUser.firstName;
       dispatch(loginSuccess(activeUser));
       setSubmitting(false);
       resetForm();
+      window.location = '/#/groceries';
     }
   };
 

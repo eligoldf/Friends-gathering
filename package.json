@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@popperjs/core": "^2.6.0",
+    "@primer/octicons-react": "^11.2.0",
     "@reduxjs/toolkit": "^1.5.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",

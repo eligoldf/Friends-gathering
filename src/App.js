@@ -9,6 +9,7 @@ import AddressPage from './pages/AdressPage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import GatheringNavbar from './components/GatheringNavbar';
+import GatheringFooter from './components/GatheringFooter';
 
 const App = () => (
   <HashRouter>
@@ -37,6 +38,7 @@ const App = () => (
         </Route>
       </Switch>
     </Container>
+    <GatheringFooter />
   </HashRouter>
 );
 
