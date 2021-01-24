@@ -5,7 +5,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import _ from 'lodash';
 import { addUserSuccess } from '../../store/user';
-import './style.css';
+import './signup.css';
 
 const SignupPage = () => {
   const dispatch = useDispatch();

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import {
   Card, Container, Jumbotron,
 } from 'react-bootstrap';
-import './style.css';
+import './guests.css';
 
 const GuestsPage = () => {
   const users = useSelector((state) => state.user.usersList);
@@ -14,8 +14,8 @@ const GuestsPage = () => {
     <Card
       bg="dark"
       key={id}
+      style={{ width: '15rem' }}
       text="light"
-      style={{ width: '18rem' }}
       className="mb-2 mr-2"
     >
       <Card.Header>
@@ -25,7 +25,6 @@ const GuestsPage = () => {
       </Card.Header>
       <Card.Body>
         <Card.Text>
-          <p>Phone</p>
           {phone}
         </Card.Text>
         <Card.Text>

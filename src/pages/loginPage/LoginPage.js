@@ -5,7 +5,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import users from '../../data/users.json';
 import { loginSuccess } from '../../store/user';
-import './style.css';
+import './login.css';
 
 const LoginPage = () => {
   const dispatch = useDispatch();

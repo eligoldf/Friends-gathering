@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Jumbotron } from 'react-bootstrap';
-import './style.css';
+import './homepage.css';
 
 const HomePage = () => (
   <Jumbotron className="homepage-jumbotron">

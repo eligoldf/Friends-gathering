@@ -10,6 +10,7 @@ import SignupPage from './pages/signupPage/SignupPage';
 import LoginPage from './pages/loginPage/LoginPage';
 import GatheringNavbar from './components/GatheringNavbar';
 import GatheringFooter from './components/GatheringFooter';
+import './app.css';
 
 const App = () => (
   <HashRouter>

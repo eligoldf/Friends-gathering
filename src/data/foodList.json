@@ -1,27 +1,30 @@
 [
     {
         "id": 1,
-        "type": "bread",
+        "type": "Bread",
         "price": 5,
-        "count": 0
+        "count": 3,
+        "responsibleUser": "John"
     },
     {
         "id": 2,
-        "type": "steak",
+        "type": "Steak",
         "price": 80,
-        "count": 0
-
+        "count": 4,
+        "responsibleUser": "Sara"
     },
     {
         "id": 3,
-        "type": "potatoes",
+        "type": "Potatoes",
         "price": 10,
-        "count": 0
+        "count": 0,
+        "responsibleUser": null
     },
     {
-        "id": 1,
-        "type": "water",
+        "id": 4,
+        "type": "Water",
         "price": 4,
-        "count": 0
+        "count": 0,
+        "responsibleUser": null
     }
 ]

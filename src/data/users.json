@@ -34,6 +34,14 @@
         "isAdmin": false,
         "password": "abc",
         "phone": "0545725443"
+    },
+    {
+        "id": 5,
+        "firstName": "John",
+        "lastName": "Morgan",        
+        "email": "jmorgan@gmail.com",
+        "isAdmin": false,
+        "password": "abc",
+        "phone": "0535726443"
     }
-
 ]

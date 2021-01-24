@@ -1,0 +1,12 @@
+.food-card {
+    width: 200px;
+    height: 300px;
+    margin: 2px;
+    font-size: 10px;
+}
+
+.food-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
