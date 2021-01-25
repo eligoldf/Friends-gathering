@@ -1,0 +1,14 @@
+.modal-content {
+    background-color: #24272a;
+    border: none;
+  }
+
+  .modal-title {
+      color: white;
+      margin: auto;
+  }
+
+  .modal-footer,
+  .modal-title {
+    margin: auto;
+  }

@@ -1,15 +1,36 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { Container } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { Container, Button } from 'react-bootstrap';
+import UsersResponsibilities from '../../components/UserResponsibilities';
+import FoodPriceCard from '../../components/FoodPriceCard';
+import TotalSumCard from '../../components/TotalSum';
+import { showModal } from '../../store/modals';
+// import GroceriesModal from '../../components/modals/UserResponsebleModal';
+import getModal from '../../components/modals';
 import './groceries.css';
-import UsersResponsibilities from './UserResponsibilities';
-import FoodPriceCard from './FoodPriceCard';
-import TotalSumCard from './TotalSum';
 
 const GroceriesPage = () => {
-  const foodList = useSelector((state) => state.grocceries.foodList);
+  const dispatch = useDispatch();
+  const { modalName, status } = useSelector((state) => state.modal);
+  const foodList = useSelector((state) => state.grocceries.foodResponsebilities);
   const userList = useSelector((state) => state.user.usersList);
+  // const activeUser = useSelector((state) => state.user.activeUser);
   const usersLength = userList.length;
+
+  const renderModal = (name) => {
+    if (!name) return null;
+
+    const Modal = getModal(name);
+    return <Modal />;
+  };
+
+  const handleUserResposeble = () => {
+    dispatch(showModal('userResponseble'));
+  };
+
+  const handleAddGroceries = () => {
+    dispatch(showModal('addFood'));
+  };
 
   const foodPrice = foodList
     .map(({
@@ -23,6 +44,13 @@ const GroceriesPage = () => {
   return (
     <Container className="text-center mt-5 c-grocceries">
       <h1>Groceries List</h1>
+      <Button type="button" size="sm" variant="outline-light" onClick={handleUserResposeble}>
+        Add responsibility
+      </Button>
+      <Button type="button" size="sm" variant="outline-light" className="ml-3" onClick={handleAddGroceries}>
+        Add groceries
+      </Button>
+      { status === 'show' && renderModal(modalName) }
       <Container className="foodlist">
         <h3>Responsibilities</h3>
         <Container className="food-cards">

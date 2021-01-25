@@ -2,29 +2,21 @@
     {
         "id": 1,
         "type": "Bread",
-        "price": 5,
-        "count": 3,
-        "responsibleUser": "John"
+        "price": 5
     },
     {
         "id": 2,
         "type": "Steak",
-        "price": 80,
-        "count": 4,
-        "responsibleUser": "Sara"
+        "price": 80
     },
     {
         "id": 3,
         "type": "Potatoes",
-        "price": 10,
-        "count": 0,
-        "responsibleUser": null
+        "price": 10
     },
     {
         "id": 4,
         "type": "Water",
-        "price": 4,
-        "count": 0,
-        "responsibleUser": null
+        "price": 4
     }
 ]

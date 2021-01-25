@@ -25,7 +25,7 @@ const LoginPage = () => {
       setSubmitting(false);
       setFieldError('user', 'There is no such user');
     } else {
-      const activeUser = varifiedUser.firstName;
+      const activeUser = varifiedUser;
       dispatch(loginSuccess(activeUser));
       setSubmitting(false);
       resetForm();

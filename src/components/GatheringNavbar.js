@@ -41,7 +41,7 @@ const GatheringNavbar = () => {
           <span style={{ color: 'purple' }}>
             Hello
             {' '}
-            {activeUser}
+            {activeUser.firstName}
           </span>
           )}
         </Nav>

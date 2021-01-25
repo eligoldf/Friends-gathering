@@ -22,7 +22,7 @@ const SignupPage = () => {
     firstName, lastName, phone, email, password,
   }, { resetForm, setSubmitting }) => {
     const data = {
-      id: _.uniqueId(),
+      id: _.uniqueId(1),
       firstName,
       lastName,
       email,
