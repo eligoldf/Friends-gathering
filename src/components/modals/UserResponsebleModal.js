@@ -10,11 +10,23 @@ import './modal.css';
 const UserResponsebleModal = () => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.user.usersList);
-  const userFnameOptions = users.map(({ id, firstName, lastName }) => (
+  const foodList = useSelector((state) => state.grocceries.foodList);
+
+  const userNameOptions = users.map(({ id, firstName, lastName }) => (
     <option key={id}>
       {firstName}
       {' '}
       {lastName}
+    </option>
+  ));
+
+  const foodOptions = foodList.map(({ id, type, price }) => (
+    <option key={id}>
+      {type}
+      {' '}
+      {price}
+      {' '}
+      &#8362;
     </option>
   ));
 
@@ -23,12 +35,14 @@ const UserResponsebleModal = () => {
   };
 
   const handleSubmitForm = ({
-    type, count, responsible, price,
+    type, count, responsible,
   }, { resetForm, setSubmitting }) => {
+    const splitedType = type.split(' ');
+
     const data = {
       id: _.uniqueId(1),
-      type,
-      price,
+      type: splitedType[0],
+      price: splitedType[1],
       count,
       responsibleUser: responsible,
     };
@@ -40,13 +54,12 @@ const UserResponsebleModal = () => {
   };
 
   const {
-    handleSubmit, handleChange, values, errors,
+    handleSubmit, handleChange, values,
   } = useFormik({
     initialValues: {
       type: '',
       count: '',
       responsible: '',
-      price: '',
     },
     onSubmit: handleSubmitForm,
   });
@@ -62,12 +75,16 @@ const UserResponsebleModal = () => {
             <Form.Group>
               <Form.Control
                 name="type"
-                type="text"
-                placeholder="What to bring"
-                value={values.foodType}
+                as="select"
+                size="sm"
+                custom
+                placeholder="What to bring?"
+                value={values.type}
                 onChange={handleChange}
-              />
-              {errors.foodType}
+                className="mt-2"
+              >
+                {foodOptions}
+              </Form.Control>
               <Form.Control
                 name="count"
                 type="number"
@@ -86,16 +103,8 @@ const UserResponsebleModal = () => {
                 onChange={handleChange}
                 className="mt-2"
               >
-                {userFnameOptions}
+                {userNameOptions}
               </Form.Control>
-              <Form.Control
-                name="price"
-                type="number"
-                placeholder="Price?"
-                value={values.price}
-                onChange={handleChange}
-                className="mt-2"
-              />
             </Form.Group>
           </Form>
           <Modal.Footer>
