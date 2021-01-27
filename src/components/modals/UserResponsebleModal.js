@@ -37,12 +37,12 @@ const UserResponsebleModal = () => {
   const handleSubmitForm = ({
     type, count, responsible,
   }, { resetForm, setSubmitting }) => {
-    const splitedType = type.split(' ');
+    const splitedFoodType = type.split(' ');
 
     const data = {
       id: _.uniqueId(1),
-      type: splitedType[0],
-      price: splitedType[1],
+      type: splitedFoodType[0],
+      price: splitedFoodType[1],
       count,
       responsibleUser: responsible,
     };

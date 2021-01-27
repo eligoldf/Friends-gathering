@@ -4,13 +4,14 @@
         "type": "Bread",
         "price": 5,
         "count": 3,
-        "responsibleUser": "John"
+        "responsibleUser": "John Doe"
     },
     {
         "id": 2,
         "type": "Steak",
         "price": 80,
-        "count": 4,
-        "responsibleUser": "Sara"
+        "count": 3,
+        "responsibleUser": "Sara Doe"
     }
 ]
+
