@@ -4,6 +4,7 @@ import {
   GoogleMap, useLoadScript, Marker, InfoWindow,
 } from '@react-google-maps/api';
 import { Container } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
 import AddressSearch from '../../components/AddressSearch';
 import { setMarkersSucces, setSelectedSuccess, setChosenAddresSuccess } from '../../store/address';
 import './addressStyle.css';
@@ -24,8 +25,12 @@ const AddressPage = () => {
   const markers = useSelector((state) => state.address.markers);
   const selected = useSelector((state) => state.address.selected);
   const chosenAddress = useSelector((state) => state.address.chosenAddress);
+  const activeUser = useSelector((state) => state.user.activeUser);
   const dispatch = useDispatch();
 
+  if (activeUser === null) {
+    return <Redirect push to="/" />;
+  }
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: apiKey,
     libraries,
@@ -60,8 +65,7 @@ const AddressPage = () => {
   return (
     <Container className="text-center">
       <h1>Event Address</h1>
-
-      <AddressSearch panTo={panTo} />
+      { activeUser.isAdmin && <AddressSearch panTo={panTo} /> }
       <Container className="map-container">
         <GoogleMap
           mapContainerStyle={mapContainerStyle}

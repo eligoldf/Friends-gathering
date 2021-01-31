@@ -3,10 +3,16 @@ import { useSelector } from 'react-redux';
 import {
   Card, Container, Jumbotron,
 } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
 import './guests.css';
 
 const GuestsPage = () => {
   const users = useSelector((state) => state.user.usersList);
+  const activeUser = useSelector((state) => state.user.activeUser);
+
+  if (activeUser === null) {
+    return <Redirect push to="/" />;
+  }
 
   const usersCard = users.map(({
     id, firstName, lastName, phone, email,

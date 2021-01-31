@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Button } from 'react-bootstrap';
+import { Redirect } from 'react-router-dom';
 import UsersResponsibilities from '../../components/UserResponsibilities';
 import FoodPriceCard from '../../components/FoodPriceCard';
 import TotalSumCard from '../../components/TotalSum';
 import ResponsibleFilter from '../../components/ResponsibleFilter';
 import { showModal } from '../../store/modals';
-// import GroceriesModal from '../../components/modals/UserResponsebleModal';
 import getModal from '../../components/modals';
 import './groceries.css';
 
@@ -16,8 +16,12 @@ const GroceriesPage = () => {
   const foodResponsible = useSelector((state) => state.grocceries.foodResponsebilities);
   const userList = useSelector((state) => state.user.usersList);
   const chosenUser = useSelector((state) => state.user.responsibleUser);
-  // const activeUser = useSelector((state) => state.user.activeUser);
+  const activeUser = useSelector((state) => state.user.activeUser);
   const usersLength = userList.length;
+
+  if (activeUser === null) {
+    return <Redirect push to="/" />;
+  }
 
   const renderModal = (name) => {
     if (!name) return null;
@@ -46,12 +50,18 @@ const GroceriesPage = () => {
   return (
     <Container className="text-center mt-5 c-grocceries">
       <h1>Groceries List</h1>
-      <Button type="button" size="sm" variant="outline-light" onClick={handleUserResponseble}>
-        Add responsibility
-      </Button>
-      <Button type="button" size="sm" variant="outline-light" className="ml-3" onClick={handleAddGroceries}>
-        Add groceries
-      </Button>
+      { activeUser.isAdmin
+        && (
+        <Button type="button" size="sm" variant="outline-light" onClick={handleUserResponseble}>
+          Add responsibility
+        </Button>
+        )}
+      { activeUser.isAdmin
+        && (
+        <Button type="button" size="sm" variant="outline-light" className="ml-3" onClick={handleAddGroceries}>
+          Add groceries
+        </Button>
+        )}
       { status === 'show' && renderModal(modalName) }
       <Container className="foodlist">
         <h3>Responsibilities</h3>

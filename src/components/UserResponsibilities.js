@@ -1,17 +1,13 @@
 import React from 'react';
-// import _ from 'lodash';
 import { Card } from 'react-bootstrap';
 import './userResponseble.css';
 
 const UsersResponsibilities = ({ foodResponsible, chosenUser }) => {
-  console.log(foodResponsible);
-  console.log(chosenUser);
-
-  const filteredUsers = chosenUser === null ? foodResponsible
+  const chosenUsersList = chosenUser === null ? foodResponsible
     : foodResponsible.filter((user) => user.userId === chosenUser);
 
   return (
-    filteredUsers.map(({
+    chosenUsersList.map(({
       id, responsibleUser, type, count,
     }) => (
       <Card
