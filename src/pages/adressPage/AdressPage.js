@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   GoogleMap, useLoadScript, Marker, InfoWindow,
@@ -11,16 +11,16 @@ import './addressStyle.css';
 const apiKey = 'AIzaSyANhCPiwPcSdCY3wvfBhXMZc-b5Wzu98fY';
 const mapContainerStyle = {
   width: '80vw',
-  height: '60vh',
+  height: '80vh',
 };
 
 const center = {
   lat: 32.109333,
   lng: 34.855499,
 };
-const libraries = ['places'];
 
 const AddressPage = () => {
+  const [libraries] = useState(['places']);
   const markers = useSelector((state) => state.address.markers);
   const selected = useSelector((state) => state.address.selected);
   const chosenAddress = useSelector((state) => state.address.chosenAddress);

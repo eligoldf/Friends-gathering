@@ -27,7 +27,6 @@ const AddressSearch = ({ panTo }) => {
   };
 
   const handleSelect = async (address) => {
-    console.log(address);
     setValue(address, false);
     clearSuggestions();
 

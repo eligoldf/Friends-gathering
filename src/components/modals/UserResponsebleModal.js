@@ -13,7 +13,7 @@ const UserResponsebleModal = () => {
   const foodList = useSelector((state) => state.grocceries.foodList);
 
   const userNameOptions = users.map(({ id, firstName, lastName }) => (
-    <option key={id}>
+    <option value={id} key={id}>
       {firstName}
       {' '}
       {lastName}
@@ -35,16 +35,20 @@ const UserResponsebleModal = () => {
   };
 
   const handleSubmitForm = ({
-    type, count, responsible,
+    type, count, userId,
   }, { resetForm, setSubmitting }) => {
     const splitedFoodType = type.split(' ');
+    const userIdNum = Number(userId);
+    const responsible = users.find((user) => user.id === userIdNum);
+    const responsibleUser = `${responsible.firstName} ${responsible.lastName}`;
 
     const data = {
       id: _.uniqueId(1),
+      userId: userIdNum,
       type: splitedFoodType[0],
-      price: splitedFoodType[1],
+      price: Number(splitedFoodType[1]),
       count,
-      responsibleUser: responsible,
+      responsibleUser,
     };
 
     dispatch(userResponseSuccess(data));
@@ -57,9 +61,9 @@ const UserResponsebleModal = () => {
     handleSubmit, handleChange, values,
   } = useFormik({
     initialValues: {
+      userId: '',
       type: '',
       count: '',
-      responsible: '',
     },
     onSubmit: handleSubmitForm,
   });
@@ -94,12 +98,12 @@ const UserResponsebleModal = () => {
                 className="mt-2"
               />
               <Form.Control
-                name="responsible"
+                name="userId"
                 as="select"
                 size="sm"
                 custom
                 placeholder="Who is bringing?"
-                value={values.responsible}
+                values={values.userId}
                 onChange={handleChange}
                 className="mt-2"
               >

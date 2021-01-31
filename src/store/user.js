@@ -7,6 +7,7 @@ const userSlice = createSlice({
   initialState: {
     activeUser: null,
     usersList: users,
+    responsibleUser: null,
   },
   reducers: {
     loginSuccess: (state, action) => {
@@ -18,8 +19,13 @@ const userSlice = createSlice({
     addUserSuccess: (state, action) => {
       state.usersList.push(action.payload);
     },
+    userResponseFilterSuccess: (state, action) => {
+      state.responsibleUser = action.payload;
+    },
   },
 });
 
 export default userSlice.reducer;
-export const { loginSuccess, logoutSuccess, addUserSuccess } = userSlice.actions;
+export const {
+  loginSuccess, logoutSuccess, addUserSuccess, userResponseFilterSuccess,
+} = userSlice.actions;

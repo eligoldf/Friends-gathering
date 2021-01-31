@@ -3,3 +3,8 @@ input {
     height: 40px;
     text-align: center;
 }
+
+.map-container {
+    display: flex;
+    
+}
